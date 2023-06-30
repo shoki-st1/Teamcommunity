@@ -1,0 +1,5 @@
+services:
+  web:
+    build: ./Docker
+    ports:
+      - 8080:80
