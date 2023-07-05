@@ -4,6 +4,4 @@
 $_GET['name'];
 $_GET['pass'];
 
-
-
 ?>

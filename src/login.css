@@ -2,3 +2,8 @@ html {
     background-color: snow;
     text-align: center;
 }
+
+body {
+    top: auto;
+    text-align: center;
+}
