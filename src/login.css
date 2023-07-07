@@ -3,6 +3,12 @@ html {
     text-align: center;
 }
 
+h1 {
+    text-align: center;
+    top: auto;
+
+}
+
 body {
     top: auto;
     text-align: center;
