@@ -4,5 +4,21 @@ services:
     ports:
       - 8080:80
     volumes:
-      - ./src:/var/www/html
+      - "./src:/var/www/html"
       - ./apache.conf:/etc/apache2/conf-available/apache.conf
+  db:
+    image: mysql
+    volumes:
+      - db:/var/lib/mysql
+      - ./config/my.cnf:/etc/mysql/my.cnf
+    environment:
+      - name=value
+  phpadmin:
+    image: phpmyadmin
+    ports:
+      - 8085:80
+    environment:
+      - PMA_HOST=db
+
+volumes:
+  db:
