@@ -13,12 +13,17 @@
     <h1>メイン</h1>
     <hr>
     <!--ボタンそれぞれ-->
-    <form method="POST" action="teammain.php">
-        <button type="submit" name="buttonId" id="profile" value="1">プロフィール</button>
-        <button type="submit" name="buttonId" id="question" value="2">質問一覧</button>
-        <button type="submit" name="buttonId" id="group" value="3">グループ</button>
-        <button type="submit" name="buttonId" id="talk" value="4">チャット</button>
-        <button type="submit" name="buttonId" id="log" value="5">履歴</button>
+    <form method="POST" name="button" action="teammain.php">
+        <!--メインに送る-->
+        <input type="submit" name="profile" value="プロフィール">
         <br>
+        <input type="submit" name="question" value="質問一覧">
+        <br>
+        <input type="submit" name="group" value="グループ">
+        <br>
+        <input type="submit" name="talk" value="チャット">
+        <br>
+        <input type="submit" name="log" value="履歴">
     </form>
+    <br>
     <hr>

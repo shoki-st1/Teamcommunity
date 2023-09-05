@@ -1,23 +1,20 @@
 <?php
 require_once 'header.php';
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    if (isset($_POST["buttonId"])) {
-        $buttonID = $_POST["buttonId"];
-        if ($buttonID === "1") {
-            echo "プロフィールボタンがクリックされました。";
-        } elseif ($buttonID === "2") {
-            echo "質問一覧ボタンがクリックされました。";
-        } elseif ($buttonID === "3") {
-            echo "グループボタンがクリックされました。";
-        } elseif ($buttonID === "4") {
-            echo "チャットボタンがクリックされました。";
-        } elseif ($buttonID === "5") {
-            echo "履歴ボタンがクリックされました。";
-        } else {
-            echo "未知のボタンがクリックされました。";
-        }
-    } else {
-        echo "ボタンIDがPOSTリクエストに含まれていません。";
-    }
-}
+?>
+
+<?php
+$temp = $_POST['button'];
+echo '選択したのは' . $temp . 'です。';
+
+?>
+
+
+<br>
+<br>
+<form method="POST" action="question.php">
+    <input type="submit" value="質問する">
+</form>
+
+<?php
 require_once 'footer.php';
+?>
