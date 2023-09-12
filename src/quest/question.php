@@ -1,6 +1,7 @@
 <?php
 //ヘッダー
-require_once 'header.php';
+require_once '../header.php';
+
 ?>
 
 <h1>質問を入力してください</h1>
@@ -12,5 +13,5 @@ require_once 'header.php';
 
 <?php
 //フッター
-require_once 'footer.php';
+require_once '../footer.php';
 ?>

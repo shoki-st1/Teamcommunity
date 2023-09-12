@@ -5,18 +5,21 @@ services:
       - 8080:80
     volumes:
       - ./src:/var/www/html
-      - ./apache.conf:/etc/apache2/conf-available/apache.conf
+      - ./apache.conf:/etc/apache2/conf-available/apache.conf/
+    links:
+      - db
   db:
     image: mysql
     environment:
       - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=teamdb
       - MYSQL_USER=star
       - MYSQL_PASSWORD=pass
       - TZ=Asia/Tokyo
     volumes:
-      - db:/var/lib/mysql
+      - db:/var/lib/mysql/
     # - ./sql:/docker-entrypoint-initdb.d/
-
+    # 言語設定
     command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
 
   phpadmin:
