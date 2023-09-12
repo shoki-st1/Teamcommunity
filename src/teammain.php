@@ -46,11 +46,12 @@ echo '<br>';
 
 <br>
 <br>
+
 <!--質問へ飛ぶためのボタン-->
 <button class="button" onclick="question()">質問する</button>
 <script>
     function question() {
-        window.location.href = "./question.php";
+        window.location.href = "./quest/question.php";
     }
 </script>
 
