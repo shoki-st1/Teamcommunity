@@ -46,6 +46,5 @@
 
         function goLog() {
             window.location.href = "./quest/log.php";
-            document.write("log");
         }
     </script>
