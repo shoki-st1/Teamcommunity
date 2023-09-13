@@ -30,7 +30,7 @@
     <!--JS-->
     <script>
         function goQuestion() {
-            window.location.href = "config.php";
+            window.location.href = "/quest/questDis.php";
         }
 
         function goGroup() {
