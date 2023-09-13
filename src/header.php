@@ -30,32 +30,7 @@
     <!--JS-->
     <script>
         function goQuestion() {
-            const mysql = require('mysql');
-
-            const connection = mysql.createConnection({
-                host: 'db', // Dockerホスト
-                user: 'root',
-                password: 'root', // MySQLルートユーザーのパスワード
-                database: 'teamdb' // データベース名
-            });
-
-            connection.connect((err) => {
-                if (err) {
-                    console.error('データベースに接続できませんでした:', err);
-                    return;
-                }
-                console.log('データベースに接続しました');
-
-                // ここでクエリを実行できます
-
-            });
-
-            // ここでデータベース操作を行うコードを記述
-
-            connection.end();
-
-
-            // window.location.href = "/quest/quesDis.php";
+            window.location.href = "config.php";
         }
 
         function goGroup() {

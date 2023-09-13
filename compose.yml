@@ -6,6 +6,8 @@ services:
     volumes:
       - ./src:/var/www/html
       - ./apache.conf:/etc/apache2/conf-available/apache.conf/
+    links:
+      - db
   db:
     image: mysql
     environment:
