@@ -18,6 +18,7 @@ if ($conn->connect_error) {
     if ($result->num_rows > 0) {
         // 結果を表示
         while ($row = $result->fetch_assoc()) {
+            //テーブルで表示させる
             echo "カラム1: " . $row["id"] . " - カラム2: " . $row["sample"] . "<br>";
         }
     } else {

@@ -1,19 +1,17 @@
-<!--チェックするためのphp-->
+<!--チェック、登録するためのphp-->
 <?php
 //ヘッダー
-require_once '../header.php';
+//require_once '../header.php';
 
+//テキスト内容
 $temp = $_POST['question'];
-
-//前のページに戻るボタン
-echo '<form method="POST" action="question.php">';
-echo '<a href="' . $_SERVER['HTTP_REFERER'] . '">戻る</a>';
-echo '</form>';
+echo "<h3>登録内容</h3>";
+echo $temp;
+echo "<br>";
 
 //中身の判定
-if (empty($temp)) {
-    echo "入力されていません";
-} else {
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["insertButton"])) {
+    //$nowdate = date('Y-m-d H:i:s');
     //ここでsqlに登録する
     $servername = "db";
     $username = "root";
@@ -28,20 +26,24 @@ if (empty($temp)) {
         die("データベースへの接続に失敗しました: " . $conn->connect_error);
     } else {
         // INSERT文の例
-        $sql = "INSERT INTO teamdb_table (id, sample)
-VALUES ('11', '値2')";
+        $sql = "INSERT INTO teamdb_table (sample)
+        VALUES ('$temp')";
 
         if ($conn->query($sql) === TRUE) {
-            echo "新しいレコードが正常に挿入されました";
+            echo "正常に挿入されました";
         } else {
             echo "エラー: " . $sql . "<br>" . $conn->error;
         }
         $conn->close();
 
         echo '<form method="POST" action="/teammain.php">';
-        echo '<input type="submit" value="登録完了">';
+        echo '<input type="submit" value="メインに戻る">';
         echo '</form>';
     }
+} else {
+    //前のページに戻るボタン
+    echo '<a href="/quest/question.php">戻る</a>';
 }
 //フッター
-require_once '../footer.php';
+//require_once '/footer.php';
+?>

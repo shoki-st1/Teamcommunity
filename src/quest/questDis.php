@@ -1,4 +1,5 @@
 <?php
+//全ての質問
 $servername = "db"; // Dockerホスト
 $username = "root";
 $password = "root"; // MySQLルートユーザーのパスワード
