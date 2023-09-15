@@ -1,7 +1,8 @@
 <!--チェック、登録するためのphp-->
 <?php
 //ヘッダー
-//require_once '../header.php';
+require_once '../header.php';
+
 
 //テキスト内容
 $temp = $_POST['question'];
@@ -10,7 +11,7 @@ echo $temp;
 echo "<br>";
 
 //中身の判定
-if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["insertButton"])) {
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["insertButton"]) && !(empty($temp))) {
     //$nowdate = date('Y-m-d H:i:s');
     //ここでsqlに登録する
     $servername = "db";
@@ -42,8 +43,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["insertButton"])) {
     }
 } else {
     //前のページに戻るボタン
+    echo "入力をしてください";
     echo '<a href="/quest/question.php">戻る</a>';
 }
 //フッター
-//require_once '/footer.php';
+require_once '../footer.php';
 ?>

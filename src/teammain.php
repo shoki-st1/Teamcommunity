@@ -15,7 +15,7 @@ require_once 'header.php';
 
         <button class="button" name="talk" onclick="goTalk()">チャット</button> -->
 
-    <button class="button" name="log" onclick="goLog()">履歴</button>
+    <button class="button" name="log" onclick="goLog()">一覧</button>
 </div>
 <br>
 
@@ -41,8 +41,8 @@ require_once 'header.php';
     }
 </script>
 
-<!--質問へ飛ぶためのボタン-->
-<button class="button" onclick="question()">質問する</button>
+<!--登録へ飛ぶためのボタン-->
+<button class="button" onclick="question()">登録する</button>
 <script>
     function question() {
         window.location.href = "/quest/question.php";
