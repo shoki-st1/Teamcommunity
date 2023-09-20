@@ -1,9 +1,9 @@
-CREATE DATABASE IF NOT EXISTS teamdb;
-USE teamdb;
+CREATE DATABASE IF NOT EXISTS userdb;
+USE userdb;
 
-CREATE TABLE IF NOT EXISTS teamdb_table
+--tableの作成--
+CREATE TABLE IF NOT EXISTS userdb_table
 (
-  `id`         int(15) NOT NULL AUTO_INCREMENT,
-  `sample`     text,
-  PRIMARY KEY (`id`)
-);
+  userid VARCHAR(50) PRIMARY KEY,
+  password VARCHAR(255) NOT NULL
+  );
