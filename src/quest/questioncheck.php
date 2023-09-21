@@ -1,9 +1,5 @@
 <!--チェック、登録するためのphp-->
 <?php
-//ヘッダー
-require_once '../header.php';
-
-
 //テキスト内容
 $temp = $_POST['question'];
 echo "<h3>登録内容</h3>";
@@ -14,10 +10,7 @@ echo "<br>";
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["insertButton"]) && !(empty($temp))) {
     //$nowdate = date('Y-m-d H:i:s');
     //ここでsqlに登録する
-    $servername = "db";
-    $username = "root";
-    $password = "root";
-    $dbname = "teamdb";
+    require_once '../config.php';
 
     // MySQLに接続
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -27,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["insertButton"]) && !(
         die("データベースへの接続に失敗しました: " . $conn->connect_error);
     } else {
         // INSERT文の例
-        $sql = "INSERT INTO teamdb_table (sample)
+        $sql = "INSERT INTO $dbtable (password)
         VALUES ('$temp')";
 
         if ($conn->query($sql) === TRUE) {
@@ -46,6 +39,4 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["insertButton"]) && !(
     echo "入力をしてください";
     echo '<a href="/quest/question.php">戻る</a>';
 }
-//フッター
-require_once '../footer.php';
 ?>

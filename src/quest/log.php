@@ -1,8 +1,6 @@
+<!--一覧の表示と登録のボタン-->
 <?php
-$servername = "db";
-$username = "root";
-$password = "root";
-$dbname = "teamdb";
+require_once '../config.php';
 
 // MySQLに接続
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -12,12 +10,12 @@ if ($conn->connect_error) {
     die("データベースへの接続に失敗しました: " . $conn->connect_error);
 } else {
     // SELECTクエリの例
-    $sql = "SELECT * FROM teamdb_table";
+    $sql = "SELECT * FROM $dbtable";
     $result = $conn->query($sql);
 
     echo "<center><table border='1'>";
     echo "<tr>
-            <th>id</th>
+            <th>ユーザid</th>
             <th>入力内容</th>
             <th>削除</th>
         </tr>";
@@ -43,3 +41,12 @@ if ($conn->connect_error) {
     echo '<input type="submit" value="メインに戻る">';
     echo '</form>';
 }
+?>
+
+<!--登録へ飛ぶためのボタン-->
+<button class="button" onclick="question()">登録する</button>
+<script>
+    function question() {
+        window.location.href = "/quest/question.php";
+    }
+</script>
