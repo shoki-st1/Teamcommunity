@@ -2,10 +2,7 @@
 <?php
 echo '<center>';
 if ($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET["id"])) {
-    $server = "db";
-    $username = "root";
-    $pass = "root";
-    $dbname = "teamdb";
+    require_once '../config.php';
 
     $conn = new mysqli($server, $username, $pass, $dbname);
 
@@ -13,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET["id"])) {
         die("失敗" . $conn->connect_error);
     } else {
         $id = $_GET['id'];
-        $sql = "delete from teamdb_table where id = $id";
+        $sql = "delete from $dbtable where id = $id";
 
         if ($conn->query($sql) === TRUE) {
             echo $id . "は削除されました";

@@ -1,6 +1,7 @@
 <!--一覧の表示と登録のボタン-->
 <?php
 require_once '../config.php';
+echo '<h3>内容一覧</h3>';
 
 // MySQLに接続
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -26,7 +27,7 @@ if ($conn->connect_error) {
             //テーブルで表示させる
             echo "<tr>
             <td>" . $row["id"] . "</td>
-            <td>" . $row["sample"] . "</td>
+            <td>" . $row["pass"] . "</td>
             <td><a href='delete.php?id=" . $row["id"] . "'>削除</a>
             </tr>";
         }
@@ -37,7 +38,7 @@ if ($conn->connect_error) {
     echo "</table></center>";
     $conn->close();
 
-    echo '<form method="POST" action="/teammain.php">';
+    echo '<form method="POST" action="/progressmain.php">';
     echo '<input type="submit" value="メインに戻る">';
     echo '</form>';
 }
@@ -47,6 +48,6 @@ if ($conn->connect_error) {
 <button class="button" onclick="question()">登録する</button>
 <script>
     function question() {
-        window.location.href = "/quest/question.php";
+        window.location.href = "/quest/quest_table.php";
     }
 </script>

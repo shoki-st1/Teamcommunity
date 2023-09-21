@@ -30,13 +30,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["insertButton"]) && !(
         }
         $conn->close();
 
-        echo '<form method="POST" action="/teammain.php">';
-        echo '<input type="submit" value="メインに戻る">';
+        echo '<form method="POST" action="/log.php">';
+        echo '<input type="submit" value="一覧に戻る">';
         echo '</form>';
     }
 } else {
     //前のページに戻るボタン
     echo "入力をしてください";
-    echo '<a href="/quest/question.php">戻る</a>';
+    echo '<a href="/quest/quest_table.php">戻る</a>';
 }
 ?>

@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <!--キャッシュの削除入れるcssは絶対パス出ないと動かない-->
-    <link rel="stylesheet" type="text/css" href="/teammain.css">
+    <link rel="stylesheet" type="text/css" href="/progressmain.css">
     <title>チームコム</title>
 </head>
 
