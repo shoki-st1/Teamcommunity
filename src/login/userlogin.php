@@ -14,7 +14,19 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("接続に失敗しました");
 } else {
-    echo "ログイン";
+    $sql = "SELECT * FORM $dbtable (password) VALUES ('$temp')";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "ユーザログインが完了しました";
+    } else {
+        echo "エラー: " . $sql . "<br>" . $conn->error;
+    }
+    $conn->close();
+
+    //メイン画面に行くようにする
+    echo '<button>';
+    echo '';
+    echo '</button>';
 }
 
 
