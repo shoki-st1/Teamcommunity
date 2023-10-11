@@ -20,6 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["insertButton"]) && !(
         die("データベースへの接続に失敗しました: " . $conn->connect_error);
     } else {
         // INSERT文の例
+        //ここでsqlの文をsql.phpに送る
         $sql = "INSERT INTO $dbtable (password)
         VALUES ('$temp')";
 
