@@ -8,8 +8,15 @@ require_once 'header.php';
 <hr>
 
 <!--カレンダーなどの処理-->
-
-
+<tr>
+    <th>月</th>
+    <th>火</th>
+    <th>水</th>
+    <th>木</th>
+    <th>金</th>
+    <th>土</th>
+    <th>日</th>
+</tr>
 
 
 <!--機能選択ボタン-->

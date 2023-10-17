@@ -1,5 +1,4 @@
 FROM php:apache
-
 # webの公開にコピー
 COPY ./src/ /var/www/html/
 COPY ./apache.conf /etc/apache2/conf-available/
@@ -11,4 +10,4 @@ WORKDIR /var/www/html/
 RUN docker-php-ext-install mysqli
 RUN a2enconf apache
 
-# EXPOSE 80
+EXPOSE 80

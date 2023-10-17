@@ -1,0 +1,39 @@
+--sqlの設定--
+--dbの作成--
+CREATE DATABASE IF NOT EXISTS userdb;
+USE userdb;
+
+--usertableの作成--
+CREATE TABLE IF NOT EXISTS userdb_table
+(
+  userid int(15) NOT NULL AUTO_INCREMENT,
+  password VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`userid`)
+  );
+
+--task_tableの作成--
+CREATE TABLE IF NOT EXISTS task_table
+(
+  userid VARCHAR(50),
+  task VARCHAR(100),
+  startday VARCHAR(25),
+  finday VARCHAR(25)
+);
+
+--テストデータのINSERT--
+--userdb_table--
+INSERT INTO userdb_table(userid) VALUES('test');
+INSERT INTO userdb_table(password) VALUES ('pass');
+
+--task_table--
+INSERT INTO task_table(userid) VALUES('test');
+INSERT INTO task_table(task) VALUE('testdata');
+INSERT INTO task_table(startday) VALUES ('10-23');
+INSERT INTO task_table(finday) VALUES ('10-26');
+
+
+テストデータ
+userid
+test
+password
+pass

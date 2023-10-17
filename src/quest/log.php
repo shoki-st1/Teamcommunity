@@ -26,9 +26,9 @@ if ($conn->connect_error) {
         while ($row = $result->fetch_assoc()) {
             //テーブルで表示させる
             echo "<tr>
-            <td>" . $row["id"] . "</td>
-            <td>" . $row["pass"] . "</td>
-            <td><a href='delete.php?id=" . $row["id"] . "'>削除</a>
+            <td>" . $row["userid"] . "</td>
+            <td>" . $row["password"] . "</td>
+            <td><a href='delete.php?id=" . $row["userid"] . "'>削除</a>
             </tr>";
         }
     } else {
