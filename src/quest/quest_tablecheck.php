@@ -8,7 +8,7 @@ echo "<br>";
 
 
 //入力判定(空白、現在時刻より進んでいること)
-if (!(isset($_POST['question'])) && strtotime($_POST['startday']) >= date('Y-m-d') && strtotime($_POST['startday']) < strtotime($_POST['finday'])) {
+if (isset($_POST['question']) && strtotime($_POST['startday']) >= date('Y-m-d') && strtotime($_POST['startday']) < strtotime($_POST['finday'])) {
     echo "データベースに登録します";
     require 'sql.php';
     //passwordにtempを代入

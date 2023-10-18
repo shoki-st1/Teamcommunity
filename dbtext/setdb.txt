@@ -1,10 +1,10 @@
 --sqlの設定--
 --dbの作成--
-CREATE DATABASE IF NOT EXISTS userdb;
-USE userdb;
+CREATE DATABASE IF NOT EXISTS db;
+USE db;
 
 --usertableの作成--
-CREATE TABLE IF NOT EXISTS userdb_table
+CREATE TABLE IF NOT EXISTS user_table
 (
   userid int(15) NOT NULL AUTO_INCREMENT,
   password VARCHAR(255) NOT NULL,
@@ -14,11 +14,14 @@ CREATE TABLE IF NOT EXISTS userdb_table
 --task_tableの作成--
 CREATE TABLE IF NOT EXISTS task_table
 (
-  userid VARCHAR(50),
+  userid int(15) NOT NULL AUTO_INCREMENT,
   task VARCHAR(100),
   startday VARCHAR(25),
-  finday VARCHAR(25)
+  finday VARCHAR(25),
+  PRIMARY KEY (`userid`)
 );
+
+
 
 --テストデータのINSERT--
 --userdb_table--

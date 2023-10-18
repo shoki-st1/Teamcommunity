@@ -6,8 +6,8 @@
 // $db_name = "userdb";
 // $db_table_name = "userdb_table";
 
-$servername = "db";
+$servername = "mysql:host=db;dbname=userdb;chartset=utf-8";
 $username = "root";
 $password = "root";
 $dbname = "userdb";
-$dbtable = "userdb_table";
+//$dbtable = "userdb_table";
