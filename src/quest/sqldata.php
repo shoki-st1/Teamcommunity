@@ -34,6 +34,7 @@ class SqlData extends Data
     //task追加
     public function addtask($userId, $task, $startday, $finday)
     {
+        //sql操作命令
         $sql = "insert into task_table (userid,task,startday,finday) values(?,?,?,?)";
         $result = $this->exec($sql, [$userId, $task, $startday, $finday]);
     }
