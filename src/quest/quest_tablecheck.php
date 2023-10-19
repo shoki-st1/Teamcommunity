@@ -1,6 +1,7 @@
 <!--チェック、登録するためのphp-->
 <?php
 //内容の代入
+$userId = 'test';
 $task = $_POST['question'];
 $startday = $_POST['startday'];
 $finday = $_POST['finday'];
@@ -22,14 +23,13 @@ echo "<br>";
 
 //入力判定(空白、現在時刻より進んでいること)
 if (!empty($task) && strtotime($startday) >= strtotime(date('Y-m-d')) && strtotime($startday) < strtotime($finday)) {
-    //テスト段階の為ランダム
-    $userId = rand();
+    $Nowdate = strtotime(date('Y-m-d H:i:s'));
     echo "データベースに登録します";
     //ファイルの呼び出し
     require __DIR__ . '/sqldata.php';
     //sqlオブジェクトの生成と処理
     $SqlTask = new SqlData();
-    $SqlTask->addtask($userId, $task, $startday, $finday);
+    $SqlTask->addtask($Nowdate, $userId, $task, $startday, $finday);
 } else {
     //入力画面に戻す
     echo "入力されていないか、日付が間違っています。";
