@@ -1,20 +1,27 @@
 <!--チェック、登録するためのphp-->
 <?php
 //テキスト内容
-$temp = $_POST['question'];
+$task = $_POST['question'];
+$startday = $_POST['startday'];
+$finday = $_POST['finday'];
+
 echo "<h3>登録内容</h3>";
-echo $temp;
+echo $task;
 echo "<br>";
 
-
+$userId = rand();
+echo "データベースに登録します";
+require __DIR__ . '/sqldata.php';
+//sql
+$SqlTask = new SqlData();
+$SqlTask->addtask($userId, $task, $startday, $finday);
 //入力判定(空白、現在時刻より進んでいること)
-if (isset($_POST['question']) && strtotime($_POST['startday']) >= date('Y-m-d') && strtotime($_POST['startday']) < strtotime($_POST['finday'])) {
+if (isset($task) && strtotime($startday) >= date('Y-m-d') && strtotime($startday) < strtotime($finday)) {
     echo "データベースに登録します";
-    require 'sql.php';
-    //passwordにtempを代入
-    $sql = "INSERT INTO userdb_table (password) VALUES ('?')";
-    //関数に送る
-    dboperation($sql, $temp);
+    require __DIR__ . 'sqldata.php';
+    //sql
+    $task = new SqlData();
+    $task->addtask($userId, $task, $startday, $finday);
 } else {
     echo "入力されていないか、日付が間違っています。";
     echo '<a href="/quest/quest_table.php">戻る</a>';

@@ -1,7 +1,7 @@
 --sqlの設定--
 --dbの作成--
-CREATE DATABASE IF NOT EXISTS db;
-USE db;
+CREATE DATABASE IF NOT EXISTS datadb;
+USE datadb;
 
 --usertableの作成--
 CREATE TABLE IF NOT EXISTS user_table

@@ -4,14 +4,18 @@ class Data
 {
     protected $pdo;
 
+    //コンストラクタ
     public function __construct()
     {
         //データベースの情報の持ち込み
         require_once '../config.php';
 
+        $this->pdo = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+        //$this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         //接続の確認
         try {
-            $this->pdo = new PDO($servername, $username, $password);
+            // $this->pdo = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+            // $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (Exception $e) {
             echo 'error' . $e->getMessage();
             die();

@@ -7,6 +7,8 @@ COPY ./apache.conf /etc/apache2/conf-available/
 WORKDIR /var/www/html/
 
 # MySQLi拡張機能を有効にする
+# mysqlのpdoを有効にする
+RUN docker-php-ext-install pdo pdo_mysql
 RUN docker-php-ext-install mysqli
 RUN a2enconf apache
 

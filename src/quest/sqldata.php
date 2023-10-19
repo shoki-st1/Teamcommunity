@@ -16,18 +16,26 @@ class SqlData extends Data
             echo "既に登録されているidです";
         } else {
             //新規のユーザ登録
-            $sql = "insert into userdb_table values(?,?)";
+            $sql = "insert into userdb_table (userid,password) values(?,?)";
             $result = $this->exec($sql, [$userId, $password]);
         }
     }
+
 
     //task一覧(log)の部分 表示
     public function gettask($userId)
     {
         $sql = "select * from task_table where userid = ?";
         $stmt = $this->query($sql, [$userId]);
-        $task = $stmt->fetchAll();
+        $task = $stmt->fetch_assoc();
         return $task;
+    }
+
+    //task追加
+    public function addtask($userId, $task, $startday, $finday)
+    {
+        $sql = "insert into task_table (userid,task,startday,finday) values(?,?,?,?)";
+        $result = $this->exec($sql, [$userId, $task, $startday, $finday]);
     }
 
     //task削除
