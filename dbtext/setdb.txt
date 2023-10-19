@@ -12,6 +12,7 @@ CREATE TABLE IF NOT EXISTS user_table
   );
 
 --task_tableの作成--
+(未)--入力日付(年日時を主キーとして登録し表示させる)--
 CREATE TABLE IF NOT EXISTS task_table
 (
   userid int(15) NOT NULL AUTO_INCREMENT,
