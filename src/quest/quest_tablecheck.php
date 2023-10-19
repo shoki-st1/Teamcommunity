@@ -6,22 +6,30 @@ $startday = $_POST['startday'];
 $finday = $_POST['finday'];
 
 echo "<h3>登録内容</h3>";
+//内容の表示
 echo $task;
 echo "<br>";
 
-$userId = rand();
-echo "データベースに登録します";
-require __DIR__ . '/sqldata.php';
-//sql
-$SqlTask = new SqlData();
-$SqlTask->addtask($userId, $task, $startday, $finday);
+/*
+テスト用
+// $userId = rand();
+// echo "データベースに登録します";
+// require __DIR__ . '/sqldata.php';
+// //sql
+// $SqlTask = new SqlData();
+// $SqlTask->addtask($userId, $task, $startday, $finday);
+*/
+
 //入力判定(空白、現在時刻より進んでいること)
 if (isset($task) && strtotime($startday) >= date('Y-m-d') && strtotime($startday) < strtotime($finday)) {
+    //テスト段階の為ランダム
+    $userId = rand();
     echo "データベースに登録します";
-    require __DIR__ . 'sqldata.php';
-    //sql
-    $task = new SqlData();
-    $task->addtask($userId, $task, $startday, $finday);
+    //ファイルの呼び出し
+    require __DIR__ . '/sqldata.php';
+    //sqlオブジェクトの生成と処理
+    $SqlTask = new SqlData();
+    $SqlTask->addtask($userId, $task, $startday, $finday);
 } else {
     echo "入力されていないか、日付が間違っています。";
     echo '<a href="/quest/quest_table.php">戻る</a>';
