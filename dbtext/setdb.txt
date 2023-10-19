@@ -1,23 +1,28 @@
 --sqlの設定--
---dbの作成--
+
+--dbの作成----------------------------------------------------
 CREATE DATABASE IF NOT EXISTS datadb CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE datadb;
 
+---------------------------------------------------------------------
+P:ユーザID (文字型)
+パスワード   (文字型)
+---------------------------------------------------------------------
 --usertableの作成--
 CREATE TABLE IF NOT EXISTS user_table
 (
-  userid int(15) NOT NULL AUTO_INCREMENT,
+  userid VARCHAR(255) NOT NULL,
   password VARCHAR(255) NOT NULL,
   PRIMARY KEY (`userid`)
   );
 
-(未)--入力日付(年日時を主キーとして登録し表示させる)--
-(主キー)　日付(文字型)
+------------------------------------------------------------------
+P:日付(文字型)
 ユーザID (文字型)
 タスク　(文字型)
 開始日　(文字型)
 終了日　(文字型)
---
+-------------------------------------------------------------------
 --task_tableの作成--
 CREATE TABLE IF NOT EXISTS task_table
 (
@@ -28,16 +33,15 @@ CREATE TABLE IF NOT EXISTS task_table
   finday VARCHAR(25),
   PRIMARY KEY (`date`)
 );
-
+---------------------------------------------------------------------
 
 --起動のコピペ用--
 docker compose exec db bash
 mysql -p
-パスワード入力
+-パスワード入力
 use datadb;
-select * from task_table;
 
-
+----------------------------------------------------------------------
 --テストデータのINSERT--
 --userdb_table--
 INSERT INTO userdb_table(userid) VALUES('test');
@@ -48,7 +52,6 @@ INSERT INTO userdb_table(password) VALUES ('pass');
 --INSERT INTO task_table(task) VALUE('testdata');
 --INSERT INTO task_table(startday) VALUES ('10-23');
 --INSERT INTO task_table(finday) VALUES ('10-26');
-
 
 テストデータ
 userid

@@ -13,7 +13,6 @@ echo "<br>";
 
 /*
 テスト用
-// $userId = rand();
 // echo "データベースに登録します";
 // require __DIR__ . '/sqldata.php';
 // //sql
@@ -23,6 +22,7 @@ echo "<br>";
 
 //入力判定(空白、現在時刻より進んでいること)
 if (!empty($task) && strtotime($startday) >= strtotime(date('Y-m-d')) && strtotime($startday) < strtotime($finday)) {
+    //タイムスタンプ
     $Nowdate = strtotime(date('Y-m-d H:i:s'));
     echo "データベースに登録します";
     //ファイルの呼び出し

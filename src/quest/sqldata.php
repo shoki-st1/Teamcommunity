@@ -21,8 +21,12 @@ class SqlData extends Data
         }
     }
 
+    //userログインの判定
+
+
 
     //task一覧(log)の部分 表示
+    //日付にしておく
     public function gettask($userId)
     {
         $sql = "select * from task_table where userid = ?";
@@ -40,6 +44,7 @@ class SqlData extends Data
     }
 
     //task削除
+    //日付に変更しておく
     public function deltask($userId)
     {
         $sql = "delete from task_table where userid = ?";

@@ -1,5 +1,5 @@
 <?php
-//sql実行のみの関数ファイル
+//親クラスファイル
 class Data
 {
     protected $pdo;
