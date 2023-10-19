@@ -1,6 +1,6 @@
 <!--チェック、登録するためのphp-->
 <?php
-//テキスト内容
+//内容の代入
 $task = $_POST['question'];
 $startday = $_POST['startday'];
 $finday = $_POST['finday'];
@@ -31,11 +31,12 @@ if (isset($task) && strtotime($startday) >= strtotime(date('Y-m-d')) && strtotim
     $SqlTask = new SqlData();
     $SqlTask->addtask($userId, $task, $startday, $finday);
 } else {
+    //入力画面に戻す
     echo "入力されていないか、日付が間違っています。";
     echo '<a href="/quest/quest_table.php">戻る</a>';
 }
 
-//db操作
+//task一覧に戻る
 echo '<form method="POST" action="log.php">';
 echo '<input type="submit" value="task一覧に戻る">';
 echo '</form>';
