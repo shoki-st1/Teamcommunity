@@ -1,6 +1,6 @@
 --sqlの設定--
 --dbの作成--
-CREATE DATABASE IF NOT EXISTS datadb;
+CREATE DATABASE IF NOT EXISTS datadb CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE datadb;
 
 --usertableの作成--
@@ -15,12 +15,19 @@ CREATE TABLE IF NOT EXISTS user_table
 CREATE TABLE IF NOT EXISTS task_table
 (
   userid int(15) NOT NULL AUTO_INCREMENT,
-  task VARCHAR(100),
+  task VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   startday VARCHAR(25),
   finday VARCHAR(25),
   PRIMARY KEY (`userid`)
 );
 
+
+--起動のコピペ用--
+docker compose exec db bash
+mysql -p
+パスワード入力
+use datadb;
+select * from task_table;
 
 
 --テストデータのINSERT--
@@ -29,10 +36,10 @@ INSERT INTO userdb_table(userid) VALUES('test');
 INSERT INTO userdb_table(password) VALUES ('pass');
 
 --task_table--
-INSERT INTO task_table(userid) VALUES('test');
-INSERT INTO task_table(task) VALUE('testdata');
-INSERT INTO task_table(startday) VALUES ('10-23');
-INSERT INTO task_table(finday) VALUES ('10-26');
+--INSERT INTO task_table(userid) VALUES('test');
+--INSERT INTO task_table(task) VALUE('testdata');
+--INSERT INTO task_table(startday) VALUES ('10-23');
+--INSERT INTO task_table(finday) VALUES ('10-26');
 
 
 テストデータ

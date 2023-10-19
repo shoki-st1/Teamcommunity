@@ -21,7 +21,7 @@ echo "<br>";
 */
 
 //入力判定(空白、現在時刻より進んでいること)
-if (isset($task) && strtotime($startday) >= date('Y-m-d') && strtotime($startday) < strtotime($finday)) {
+if (isset($task) && strtotime($startday) >= strtotime(date('Y-m-d')) && strtotime($startday) < strtotime($finday)) {
     //テスト段階の為ランダム
     $userId = rand();
     echo "データベースに登録します";
