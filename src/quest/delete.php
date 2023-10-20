@@ -1,18 +1,26 @@
 <!--タスク削除のphp-->
 <?php
+//ファイル呼び出し
+require __DIR__ . '/sqldata.php';
+//削除するテーブルの生成
+$SqlTask = new SqlData();
+
+//中央揃え
 echo '<center>';
 
-if (isset($_GET["id"])) {
-    require 'sql.php';
-    $id = $_GET['id'];
-    $sql = "delete from userdb_table where id = ?";
-    //関数に送る
-    dboperation($sql, $id);
-    echo $id . "は削除されました";
+//削除するキーの受け渡し
+$date = $_GET["date"];
+
+//キーがあるかの判定
+if (isset($date)) {
+    //sql実行
+    $SqlTask->deltask($date);
+    echo "削除しました";
 } else {
-    echo "idが存在しませんエラー";
+    echo "それは本当に消せるのですか?";
 }
 
+//一覧に戻る
 echo '<form method="POST" action="/quest/log.php">';
 echo '<input type="submit" value="戻る">';
 echo '</form>';

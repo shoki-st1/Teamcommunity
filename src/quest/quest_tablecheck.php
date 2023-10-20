@@ -6,6 +6,12 @@ $task = $_POST['question'];
 $startday = $_POST['startday'];
 $finday = $_POST['finday'];
 
+
+//ファイルの呼び出し
+require __DIR__ . '/sqldata.php';
+//sqlオブジェクトの生成と処理
+$SqlTask = new SqlData();
+
 echo "<h3>登録内容</h3>";
 //内容の表示
 echo $task;
@@ -25,10 +31,7 @@ if (!empty($task) && strtotime($startday) >= strtotime(date('Y-m-d')) && strtoti
     //タイムスタンプ
     $Nowdate = strtotime(date('Y-m-d H:i:s'));
     echo "データベースに登録します";
-    //ファイルの呼び出し
-    require __DIR__ . '/sqldata.php';
-    //sqlオブジェクトの生成と処理
-    $SqlTask = new SqlData();
+    //sqlで追加
     $SqlTask->addtask($Nowdate, $userId, $task, $startday, $finday);
 } else {
     //入力画面に戻す

@@ -1,5 +1,10 @@
 <!--一覧の表示と登録のボタン-->
 <?php
+//ファイルの呼び出し
+require __DIR__ . '/sqldata.php';
+//テーブルで表示させる
+$SqlTask = new SqlData();
+
 echo '<h3>内容一覧</h3>';
 
 // SELECTクエリの例
@@ -12,16 +17,15 @@ echo "<tr>
             <th>削除</th>
         </tr>";
 
-
-//テーブルで表示させる
-// echo "<tr>
-//             <td>" . $row["userid"] . "</td>
-//             <td>" . $row["password"] . "</td>
-//             <td><a href='delete.php?id=" . $row["userid"] . "'>削除</a>
-//     </tr>";
+//ユーザIDの利用
+$userId = "test";
+//idを元に一覧を表示
+$SqlTask->gettask($userId);
 
 echo "</table></center>";
 
+
+//メインに戻るボタン
 echo '<form method="POST" action="/progressmain.php">';
 echo '<input type="submit" value="メインに戻る">';
 echo '</form>';

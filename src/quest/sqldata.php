@@ -26,13 +26,23 @@ class SqlData extends Data
 
 
     //task一覧(log)の部分 表示
-    //日付にしておく
     public function gettask($userId)
     {
+        //ユーザのみ抽出
         $sql = "select * from task_table where userid = ?";
         $stmt = $this->query($sql, [$userId]);
-        $task = $stmt->fetch_assoc();
-        return $task;
+
+        //表、表示
+        //削除へ登録した日を送る
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            echo "<tr>
+                <td>" . $row["userid"] . "</td>
+                <td>" . $row["task"] . "</td>
+                <td>" . $row["startday"] . "</td>
+                <td>" . $row["finday"] . "</td>
+                <td><a href='delete.php?date=" . $row["date"] . "'>削除</a>
+            </tr>";
+        }
     }
 
     //task追加
@@ -44,10 +54,9 @@ class SqlData extends Data
     }
 
     //task削除
-    //日付に変更しておく
-    public function deltask($userId)
+    public function deltask($date)
     {
-        $sql = "delete from task_table where userid = ?";
-        $result = $this->exec($sql, [$userId]);
+        $sql = "delete from task_table where date = ?";
+        $result = $this->exec($sql, [$date]);
     }
 }
