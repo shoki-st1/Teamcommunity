@@ -1,7 +1,7 @@
 <!--タスク削除のphp-->
 <?php
 //ファイル呼び出し
-require __DIR__ . '/sqldata.php';
+require(__DIR__ . '/../data/sqldata.php');
 //削除するテーブルの生成
 $SqlTask = new SqlData();
 

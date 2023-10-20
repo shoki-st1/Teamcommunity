@@ -8,7 +8,7 @@ $finday = $_POST['finday'];
 
 
 //ファイルの呼び出し
-require __DIR__ . '/sqldata.php';
+require(__DIR__ . '/../data/sqldata.php');
 //sqlオブジェクトの生成と処理
 $SqlTask = new SqlData();
 

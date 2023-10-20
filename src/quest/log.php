@@ -1,7 +1,7 @@
 <!--一覧の表示と登録のボタン-->
 <?php
 //ファイルの呼び出し
-require __DIR__ . '/sqldata.php';
+require(__DIR__ . '/../data/sqldata.php');
 //テーブルで表示させる
 $SqlTask = new SqlData();
 

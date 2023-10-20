@@ -8,7 +8,7 @@ class Data
     public function __construct()
     {
         //データベースの情報の持ち込み
-        require_once '../config.php';
+        require_once __DIR__ . '/config.php';
         //テスト
         //$this->pdo = new PDO("mysql:host=$servername;dbname=$dbname;charset=utf8mb4", $username, $password);
         //$this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
