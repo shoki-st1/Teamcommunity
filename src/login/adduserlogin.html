@@ -10,13 +10,13 @@
 
 <body>
     <h1>新規登録</h1>
-    <form method="POST" value="text">
+    <form method="POST" action="adduserlogin.php">
         <a>ユーザーID：</a>
-        <input type="text" value="name"><br>
+        <input type="text" name="id"><br>
         <a>パスワード：</a>
-        <input type="text" value="pass"><br>
+        <input type="text" name="pass"><br>
+        <button type="submit" name="POSTbutton">送信</button>
     </form>
-    <input type="submit" value="送信">
     <a href="userlogin.html">
         <p>ログインはこちらから</p>
     </a>

@@ -41,6 +41,9 @@ mysql -p
 -パスワード入力
 use datadb;
 
+select * from user_table;
+select * from task_table;
+
 ----------------------------------------------------------------------
 --テストデータのINSERT--
 --userdb_table--
@@ -52,9 +55,3 @@ INSERT INTO userdb_table(password) VALUES ('pass');
 --INSERT INTO task_table(task) VALUE('testdata');
 --INSERT INTO task_table(startday) VALUES ('10-23');
 --INSERT INTO task_table(finday) VALUES ('10-26');
-
-テストデータ
-userid
-test
-password
-pass

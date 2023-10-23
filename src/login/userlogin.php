@@ -2,32 +2,23 @@
 <!--通常ログイン時のphp処理-->
 <?php
 //受け取り代入
-$namestr = $_POST['name'];
+$userId = $_POST['id'];
 $password = $_POST['pass'];
 
 //データベースの情報をファイルから呼び出し
-require_once '../config.php';
+require(__DIR__ . '/../data/sqldata.php');
+//オブジェクト生成
+$SqlUser = new SqlData();
 
-//データベース接続
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-if ($conn->connect_error) {
-    die("接続に失敗しました");
+//実行フラグ
+$sqlflag = $SqlUser->login($userId, $password);
+//idとpasswordを送り、判定の結果がTRUEならOK
+if ($sqlflag) {
+    //次のページへ
+    echo "<a href='../progressmain.php'>ログイン完了</a>";
 } else {
-    $sql = "SELECT * FORM $dbtable (password) VALUES ('$temp')";
-
-    if ($conn->query($sql) === TRUE) {
-        echo "ユーザログインが完了しました";
-    } else {
-        echo "エラー: " . $sql . "<br>" . $conn->error;
-    }
-    $conn->close();
-
-    //メイン画面に行くようにする
-    echo '<button>';
-    echo '';
-    echo '</button>';
+    //ページを変える
+    echo "既にあるのかもしれません";
 }
-
 
 ?>

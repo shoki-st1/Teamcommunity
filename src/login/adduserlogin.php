@@ -1,6 +1,17 @@
 <?php
-//受け渡し
-$username = $POST['name'];
-$userpass = $POST['pass'];
+//受け取り代入
+$userId = $_POST['id'];
+$password = $_POST['pass'];
 
-require_once '../config.php';
+//データベースの情報をファイルから呼び出し
+require(__DIR__ . '/../data/sqldata.php');
+//オブジェクト生成
+$SqlUser = new SqlData();
+//idとpasswordを送る
+$resultflag = $SqlUser->adduser($userId, $password);
+
+if ($resultflag == TRUE) {
+    echo "<a href=userlogin.html>ユーザ追加に成功しました。";
+} else {
+    echo "失敗?";
+}

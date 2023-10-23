@@ -6,22 +6,39 @@ require_once __DIR__ . '/sql.php';
 class SqlData extends Data
 {
     //userの追加
-    public function adddata($userId, $password)
+    public function adduser($userId, $password)
     {
-        $sql = "select * from userdb_table where userid = ?";
+        //idの検索
+        $sql = "select * from user_table where userid = ?";
         $stmt = $this->query($sql, [$userId]);
         $user_Id = $stmt->fetch();
         if ($user_Id) {
             //既に同じuserIdがあるので登録ができない表示
             echo "既に登録されているidです";
         } else {
-            //新規のユーザ登録
-            $sql = "insert into userdb_table (userid,password) values(?,?)";
+            //新規のユーザ登録(idとpasswordを登録)
+            //パスワードのハッシュ化
+            //hash_hmac('sha512', $password, 'secret', false);
+
+            $sql = "insert into user_table (userid,password) values(?,?)";
             $result = $this->exec($sql, [$userId, $password]);
         }
     }
 
     //userログインの判定
+    public function login($userId, $password)
+    {
+        $sql = "select * from user_table where userid = ? and password = ?";
+        $result = $this->query($sql, [$userId, $password]);
+
+        //結果があればTRUE
+        if ($result) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
+
 
 
 
