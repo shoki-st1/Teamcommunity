@@ -41,6 +41,8 @@ mysql -p
 -パスワード入力
 use datadb;
 
+drop table ???;
+
 select * from user_table;
 select * from task_table;
 

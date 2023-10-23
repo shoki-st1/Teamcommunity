@@ -11,7 +11,7 @@ $SqlUser = new SqlData();
 $resultflag = $SqlUser->adduser($userId, $password);
 
 if ($resultflag == TRUE) {
-    echo "<a href=userlogin.html>ユーザ追加に成功しました。";
+    echo "<a href=userlogin.html>ユーザ登録に成功しました。";
 } else {
-    echo "失敗?";
+    echo "既に登録されているIDです。";
 }

@@ -12,22 +12,26 @@ class SqlData extends Data
         $sql = "select * from user_table where userid = ?";
         $stmt = $this->query($sql, [$userId]);
         $user_Id = $stmt->fetch();
+        //idの判定
         if ($user_Id) {
-            //既に同じuserIdがあるので登録ができない表示
-            echo "既に登録されているidです";
+            //既に同じuserIdがある場合
+            return FALSE;
         } else {
             //新規のユーザ登録(idとpasswordを登録)
             //パスワードのハッシュ化
-            //hash_hmac('sha512', $password, 'secret', false);
-
+            $password = hash_hmac('sha512', $password, 'secret', false);
             $sql = "insert into user_table (userid,password) values(?,?)";
             $result = $this->exec($sql, [$userId, $password]);
+            //正常に登録
+            return TRUE;
         }
     }
 
     //userログインの判定
     public function login($userId, $password)
     {
+        //ハッシュ
+        $password = hash_hmac('sha512', $password, 'secret', false);
         $sql = "select * from user_table where userid = ? and password = ?";
         $result = $this->query($sql, [$userId, $password]);
 
