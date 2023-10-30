@@ -14,7 +14,7 @@ class SqlData extends Data
         $user_Id = $stmt->fetch();
         //idの判定
         if ($user_Id) {
-            //既に同じuserIdがある場合
+            //既に同じuserIdがある場合はfalseを返し登録させない
             return FALSE;
         } else {
             //新規のユーザ登録(idとpasswordを登録)

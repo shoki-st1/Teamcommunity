@@ -16,10 +16,12 @@ $sqlflag = $SqlUser->login($userId, $password);
 //idとpasswordを送り、判定の結果がTRUEならOK
 if ($sqlflag) {
     //次のページへ
-    echo "<a href='../progressmain.php'>ログイン完了</a>";
+    echo "ログイン完了";
+    echo '<script type="text/javascript">window.location = "../progressmain.php"</script>';
 } else {
     //ページを変える
-    echo "そのユーザは存在しません。";
+    echo "<script>alert('ユーザIDまたはパスワードが違います。')</script>";
+    echo '<script type="text/javascript">window.location = "userlogin.html"</script>';
 }
 
 ?>
