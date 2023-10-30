@@ -30,15 +30,18 @@ class SqlData extends Data
     //userログインの判定
     public function login($userId, $password)
     {
-        //ハッシュ
+        //ハッシュ化
         $password = hash_hmac('sha512', $password, 'secret', false);
+        //id、passwordが一致しているか
         $sql = "select * from user_table where userid = ? and password = ?";
         $result = $this->query($sql, [$userId, $password]);
 
         //結果があればTRUE
-        if ($result) {
+        if ($result->rowCount() == 1) {
+            //OK
             return TRUE;
         } else {
+            //NG
             return FALSE;
         }
     }

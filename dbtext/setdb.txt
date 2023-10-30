@@ -33,6 +33,7 @@ CREATE TABLE IF NOT EXISTS task_table
   finday VARCHAR(25),
   PRIMARY KEY (`date`)
 );
+
 ---------------------------------------------------------------------
 
 --起動のコピペ用--

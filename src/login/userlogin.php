@@ -12,13 +12,14 @@ $SqlUser = new SqlData();
 
 //実行フラグ
 $sqlflag = $SqlUser->login($userId, $password);
+
 //idとpasswordを送り、判定の結果がTRUEならOK
 if ($sqlflag) {
     //次のページへ
     echo "<a href='../progressmain.php'>ログイン完了</a>";
 } else {
     //ページを変える
-    echo "既にあるのかもしれません";
+    echo "そのユーザは存在しません。";
 }
 
 ?>
