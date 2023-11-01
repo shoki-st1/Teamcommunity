@@ -14,9 +14,32 @@
         <a>ユーザーID：</a>
         <input type="text" name="id" required><br>
         <a>パスワード：</a>
-        <input type="password" name="pass" required><br>
+        <input type="password" id="pass" name="pass" required><br>
+        <span id="userpassError"></span>
         <button type="submit">送信</button>
     </form>
+
+    <script>
+        const userpassInput = document.getElementById('pass');
+        const userpassError = document.getElementById('userpassError');
+
+        //入力するごとに
+        usernameInput.addEventListener('input', () => {
+            const userpass = userpassInput.value;
+
+            //入力ルール(/から/まで^は先頭)
+            const userpassPattern = /^[a-zA-Z0-9_]{6,20}$/;
+
+            //入力の判定
+            if (userpassPattern.test(userpass)) {
+                //正しければ空白文字
+                userpassError.textContent = '';
+            } else {
+                userpassError.textContent = 'パスワードは英数字と記号の組み合わせで6文字以上20字以下で入力してください。';
+            }
+        });
+    </script>
+
     <a href="userlogin.html">
         <p>ログインはこちらから</p>
     </a>

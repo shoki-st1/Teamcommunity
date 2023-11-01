@@ -13,5 +13,6 @@ $resultflag = $SqlUser->adduser($userId, $password);
 if ($resultflag == TRUE) {
     echo "<a href=userlogin.html>ユーザ登録に成功しました。";
 } else {
-    echo "既に登録されているIDです。";
+    echo "<script>alert('既に登録されているIDです。')</script>";
+    echo '<script type="text/javascript">window.location = "adduserlogin.html"</script>';
 }
