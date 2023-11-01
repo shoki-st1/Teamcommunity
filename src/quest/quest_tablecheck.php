@@ -2,9 +2,9 @@
 <?php
 //内容の代入
 $userId = 'test';
-$task = $_POST['question'];
-$startday = $_POST['startday'];
-$finday = $_POST['finday'];
+$task = h($_POST['question']);
+$startday = h($_POST['startday']);
+$finday = h($_POST['finday']);
 
 
 //ファイルの呼び出し

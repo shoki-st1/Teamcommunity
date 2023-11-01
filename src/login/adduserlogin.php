@@ -1,7 +1,7 @@
 <?php
 //受け取り代入
-$userId = $_POST['id'];
-$password = $_POST['pass'];
+$userId = h($_POST['id']);
+$password = h($_POST['pass']);
 
 //データベースの情報をファイルから呼び出し
 require(__DIR__ . '/../data/sqldata.php');

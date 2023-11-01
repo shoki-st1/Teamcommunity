@@ -13,9 +13,9 @@
     <form method="POST" action="adduserlogin.php">
         <a>ユーザーID：</a>
         <input type="text" name="id" required><br>
-        <a>パスワード：</a>
+        <a for="pass">パスワード：</a>
         <input type="password" id="pass" name="pass" required><br>
-        <span id="userpassError"></span>
+        <span id="userpassError" style="color: red;"></span>
         <button type="submit">送信</button>
     </form>
 
@@ -35,7 +35,7 @@
                 //正しければ空白文字
                 userpassError.textContent = '';
             } else {
-                userpassError.textContent = 'パスワードは英数字と記号の組み合わせで6文字以上20字以下で入力してください。';
+                userpassError.textContent = 'パスワードは英数文字の組み合わせで6文字以上20字以下で入力してください。';
             }
         });
     </script>
