@@ -47,8 +47,6 @@ class SqlData extends Data
     }
 
 
-
-
     //task一覧(log)の部分 表示
     public function gettask($userId)
     {

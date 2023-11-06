@@ -17,7 +17,6 @@ class Data
         try {
             //ホスト、データベース名、文字、sql操作のuserとpassword
             $this->pdo = new PDO("mysql:host=$servername;dbname=$dbname;charset=utf8mb4", $username, $password);
-            //$this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (Exception $e) {
             //エラー
             echo 'error' . $e->getMessage();

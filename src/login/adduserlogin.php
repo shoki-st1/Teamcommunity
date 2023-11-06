@@ -1,7 +1,7 @@
 <?php
 //受け取り代入
-$userId = h($_POST['id']);
-$password = h($_POST['pass']);
+$userId = $_POST['id'];
+$password = $_POST['pass'];
 
 //データベースの情報をファイルから呼び出し
 require(__DIR__ . '/../data/sqldata.php');
@@ -10,9 +10,16 @@ $SqlUser = new SqlData();
 //idとpasswordを送る
 $resultflag = $SqlUser->adduser($userId, $password);
 
-if ($resultflag == TRUE) {
-    echo "<a href=userlogin.html>ユーザ登録に成功しました。";
+//文字数の判定
+if (strlen($password) < 6 || strlen($password) > 20) {
+    header('Location: /adduserlogin.html');
+    exit();
 } else {
-    echo "<script>alert('既に登録されているIDです。')</script>";
-    echo '<script type="text/javascript">window.location = "adduserlogin.html"</script>';
+    //フラグ判定
+    if ($resultflag == TRUE) {
+        echo "<a href=userlogin.html>ユーザ登録に成功しました。";
+    } else {
+        echo "<script>alert('既に登録されているIDです。')</script>";
+        echo '<script type="text/javascript">window.location = "adduserlogin.html"</script>';
+    }
 }
