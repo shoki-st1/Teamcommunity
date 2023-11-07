@@ -34,12 +34,13 @@ class SqlData extends Data
         $password = hash_hmac('sha512', $password, 'secret', false);
         //id、passwordが一致しているか
         $sql = "select * from user_table where userid = ? and password = ?";
-        $result = $this->query($sql, [$userId, $password]);
+        $stmt = $this->query($sql, [$userId, $password]);
+        $result = $stmt->fetch();
 
-        //結果があればTRUE
-        if ($result->rowCount() == 1) {
+        //結果があればユーザのデータを返す
+        if ($result) {
             //OK
-            return TRUE;
+            return $result;
         } else {
             //NG
             return FALSE;

@@ -11,12 +11,11 @@ require(__DIR__ . '/../data/sqldata.php');
 $SqlUser = new SqlData();
 
 //実行フラグ
-$sqlflag = $SqlUser->login($userId, $password);
+$userdata = $SqlUser->login($userId, $password);
 
 //idとpasswordを送り、判定の結果がTRUEならOK
-if ($sqlflag) {
+if ($userdata) {
     //次のページへ
-    echo "ログイン完了";
     echo '<script type="text/javascript">window.location = "../progressmain.php"</script>';
 } else {
     //ページを変える

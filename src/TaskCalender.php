@@ -15,7 +15,9 @@ $firstday = getdate(mktime(0, 0, 0, $month, 1, $year));
 $lastday = date('t', mktime(0, 0, 0, $month, 1, $year));
 //カレンダー処理
 //データベースからデータを参照し色付け処理?
-require_once __DIR__ . '/../src/data/sqldata.php';
+require_once __DIR__ . '/data/sqldata.php';
+
+$SqlTask = new SqlData();
 
 //カレンダーの表示
 echo '<table>';
