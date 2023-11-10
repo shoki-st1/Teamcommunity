@@ -35,15 +35,13 @@ class SqlData extends Data
         //id、passwordが一致しているか
         $sql = "select * from user_table where userid = ? and password = ?";
         $stmt = $this->query($sql, [$userId, $password]);
-        $result = $stmt->fetch();
+        $user = $stmt->fetch();
 
-        //結果があればユーザのデータを返す
-        if ($result) {
-            //OK
-            return $result;
+        //あるか返す
+        if ($user) {
+            return $user;
         } else {
-            //NG
-            return FALSE;
+            return false;
         }
     }
 
@@ -66,6 +64,15 @@ class SqlData extends Data
                 <td><a href='delete.php?date=" . $row["date"] . "'>削除</a>
             </tr>";
         }
+    }
+
+    //カレンダー用
+    public function getcalendertask($userid)
+    {
+        //ユーザのみ抽出
+        $sql = "select * from task_table";
+        $stmt = $this->query($sql, [$userid]);
+        return $stmt->fetchAll();
     }
 
     //task追加

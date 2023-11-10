@@ -1,10 +1,16 @@
-<!--ヘッダー-->
 <?php
 //ヘッダー
 require_once 'header.php';
-//タイトル
-echo '<h1>メイン</h1>';
-echo '<hr>';
+
+//session_start();
+//セッションがあるかの確認
+if (isset($_SESSION['userId'])) {
+    $userId = $_SESSION['userId'];
+    echo '<center>ようこそ' . $userId . '</center>';
+} else {
+    header('Location: /login/login.php');
+    exit();
+}
 //カレンダー呼び出し
 require_once __DIR__ . '/TaskCalender.php';
 ?>

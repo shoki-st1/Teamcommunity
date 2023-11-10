@@ -1,6 +1,6 @@
-<!--0J04007大江祥暉-->
-<!--通常ログイン時のphp処理-->
 <?php
+//セッション
+session_start();
 //受け取り代入
 $userId = $_POST['id'];
 $password = $_POST['pass'];
@@ -9,18 +9,20 @@ $password = $_POST['pass'];
 require(__DIR__ . '/../data/sqldata.php');
 //オブジェクト生成
 $SqlUser = new SqlData();
-
-//実行フラグ
+//ログイン判定実行
 $userdata = $SqlUser->login($userId, $password);
 
-//idとpasswordを送り、判定の結果がTRUEならOK
-if ($userdata) {
-    //次のページへ
-    echo '<script type="text/javascript">window.location = "../progressmain.php"</script>';
+//idとpasswordを送り、判定の結果があるなら進む
+//$userdata['userid']（useridにしているのはデータベースのカラムの名前なので固定）
+//変数名とデータベースの名前は気を付ける事
+if (isset($userdata['userid'])) {
+    //セッションでユーザーIDを送る
+    $_SESSION['userId'] = $userdata['userid'];
+    header('Location: ../progressmain.php');
+    exit();
 } else {
-    //ページを変える
-    echo "<script>alert('ユーザIDまたはパスワードが違います。')</script>";
-    echo '<script type="text/javascript">window.location = "userlogin.html"</script>';
+    //違う場合
+    $_SESSION['login_error'] = "ユーザID、パスワードを確認";
+    header('Location: /login/login.php');
+    exit();
 }
-
-?>

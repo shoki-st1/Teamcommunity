@@ -1,5 +1,3 @@
-<!--0J04007大江祥暉-->
-<!--ヘッダー-->
 <!DOCTYPE html>
 <html lang="ja">
 
