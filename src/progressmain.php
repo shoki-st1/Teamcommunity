@@ -1,36 +1,37 @@
 <?php
-//ヘッダー
-require_once 'header.php';
+session_start();
 
-//session_start();
 //セッションがあるかの確認
 if (isset($_SESSION['userId'])) {
+    //ユーザーのIdをセッションから受け取り
     $userId = $_SESSION['userId'];
-    echo '<center>ようこそ' . $userId . '</center>';
 } else {
     header('Location: /login/login.php');
     exit();
 }
-//カレンダー呼び出し
-require_once __DIR__ . '/TaskCalender.php';
+
+//ヘッダー
+require_once 'header.php';
+//ユーザーの表示
+echo '<center>ID：' . $userId . '</center>';
 ?>
 
 <!--機能選択ボタン-->
 <div class="button-select">
     <!--再帰-->
-    <!-- <button class="button" name="group" onclick="goGroup()">グループ</button>-->
 
     <!--やることの一覧-->
     <button class="button" name="log" onclick="goLog()">一覧</button>
+    <!--ログアウト-->
+    <button class="button" name="logout" onclick="gologout()">ログアウト</button>
 </div>
 <br>
 
 <!--JS-->
 <script>
-    // function goGroup() {
-    //     window.location.href = "/quest/group.php";
-    //     document.write("grop");
-    // }
+    function gologout() {
+        window.location.href = "/login/logout.php";
+    }
 
     //リスト一覧のボタン
     function goLog() {
@@ -38,6 +39,11 @@ require_once __DIR__ . '/TaskCalender.php';
     }
 </script>
 
+
+<?php
+//カレンダー呼び出し
+//require_once __DIR__ . '/TaskCalender.php';
+?>
 <!--フッター-->
 <?php
 require_once 'footer.php';

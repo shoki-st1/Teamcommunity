@@ -18,10 +18,11 @@ $userdata = $SqlUser->login($userId, $password);
 if (isset($userdata['userid'])) {
     //セッションでユーザーIDを送る
     $_SESSION['userId'] = $userdata['userid'];
+    //メイン画面
     header('Location: ../progressmain.php');
     exit();
 } else {
-    //違う場合
+    //違う場合(エラーで再帰)
     $_SESSION['login_error'] = "ユーザID、パスワードを確認";
     header('Location: /login/login.php');
     exit();
