@@ -1,5 +1,7 @@
-<!--一覧の表示と登録のボタン-->
 <?php
+//<!--一覧の表示と登録のボタン-->
+//セッションの開始
+session_start();
 //ファイルの呼び出し
 require(__DIR__ . '/../data/sqldata.php');
 //テーブルで表示させる
@@ -17,8 +19,8 @@ echo "<tr>
             <th>削除</th>
         </tr>";
 
-//ユーザIDの利用
-$userId = "test";
+//ログインユーザIDの利用(自分の登録したもののみ表示される)
+$userId = $_SESSION['userId'];
 //idを元に一覧を表示
 $SqlTask->gettask($userId);
 

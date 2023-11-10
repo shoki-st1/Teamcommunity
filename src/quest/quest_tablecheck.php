@@ -1,10 +1,11 @@
-<!--チェック、登録するためのphp-->
 <?php
+session_start();
+//<!--チェック、登録するためのphp-->
 //内容の代入
-$userId = 'test';
-$task = h($_POST['question']);
-$startday = h($_POST['startday']);
-$finday = h($_POST['finday']);
+$userId = $_SESSION['userId'];
+$task = $_POST['question'];
+$startday = $_POST['startday'];
+$finday = $_POST['finday'];
 
 
 //ファイルの呼び出し
@@ -43,5 +44,3 @@ if (!empty($task) && strtotime($startday) >= strtotime(date('Y-m-d')) && strtoti
 echo '<form method="POST" action="log.php">';
 echo '<input type="submit" value="task一覧に戻る">';
 echo '</form>';
-
-?>
