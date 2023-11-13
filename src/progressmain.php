@@ -45,8 +45,11 @@ echo '<center>ID：' . $userId . '</center>';
 
 <?php
 //カレンダー呼び出し
-//require_once __DIR__ . '/TaskCalender.php';
+require_once __DIR__ . '/TaskCalender.php';
 ?>
+
+
+
 <!--フッター-->
 <?php
 require_once 'footer.php';

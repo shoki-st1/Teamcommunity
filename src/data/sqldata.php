@@ -70,7 +70,7 @@ class SqlData extends Data
     public function getcalendertask($userid)
     {
         //ユーザのみ抽出
-        $sql = "select * from task_table";
+        $sql = "select * from task_table where userid = ?";
         $stmt = $this->query($sql, [$userid]);
         return $stmt->fetchAll();
     }
