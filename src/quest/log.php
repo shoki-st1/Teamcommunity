@@ -1,8 +1,8 @@
 <?php
-//<!--一覧の表示と登録のボタン-->
+//一覧の表示と登録のボタン
 //セッションの開始
 session_start();
-//ファイルの呼び出し
+//sqlファイルの呼び出し
 require(__DIR__ . '/../data/sqldata.php');
 //テーブルで表示させる
 $SqlTask = new SqlData();
@@ -19,14 +19,13 @@ echo "<tr>
             <th>削除</th>
         </tr>";
 
-//ログインユーザIDの利用(自分の登録したもののみ表示される)
+//ログインユーザIDの利用(ログインしているユーザーの情報のみ表示される)
 $userId = $_SESSION['userId'];
 //idを元に一覧を表示
 $SqlTask->gettask($userId);
 
 //表の終了
 echo "</table></center>";
-
 
 //メインに戻るボタン
 echo '<form method="POST" action="/progressmain.php">';

@@ -1,4 +1,5 @@
 <?php
+//セッションの開始
 session_start();
 //<!--チェック、登録するためのphp-->
 //内容の代入
@@ -18,29 +19,21 @@ echo "<h3>登録内容</h3>";
 echo $task;
 echo "<br>";
 
-/*
-テスト用
-// echo "データベースに登録します";
-// require __DIR__ . '/sqldata.php';
-// //sql
-// $SqlTask = new SqlData();
-// $SqlTask->addtask($userId, $task, $startday, $finday);
-*/
 
 //入力判定(空白、現在時刻より進んでいること)
 if (!empty($task) && strtotime($startday) >= strtotime(date('Y-m-d')) && strtotime($startday) < strtotime($finday)) {
     //タイムスタンプ
     $Nowdate = strtotime(date('Y-m-d H:i:s'));
-    echo "データベースに登録します";
+    echo "登録しました。";
     //sqlで追加
     $SqlTask->addtask($Nowdate, $userId, $task, $startday, $finday);
 } else {
     //入力画面に戻す
     echo "入力されていないか、日付が間違っています。";
-    echo '<a href="/quest/quest_table.php">戻る</a>';
+    echo '<a href="/quest/quest_table.php">登録画面に戻る</a>';
 }
 
-//task一覧に戻る
+//登録内容一覧に戻る
 echo '<form method="POST" action="log.php">';
-echo '<input type="submit" value="task一覧に戻る">';
+echo '<input type="submit" value="登録内容一覧に戻る">';
 echo '</form>';
