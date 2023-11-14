@@ -1,4 +1,13 @@
-githubから(https://github.com/shoki-st1/Teamcommunity.git)をクローン
+手順
+・githubから(https://github.com/shoki-st1/Teamcommunity.git)をクローン
+PSはターミナル
+・dockerでbuild
+PS>docekr compose build
+・dockerの機動
+PS>docker comose up -d
+・落とすとき
+PS>docker compose down
+
 
 使用
 docker
