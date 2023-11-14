@@ -3,11 +3,16 @@
 PSはターミナル
 ・dockerでbuild
 PS>docekr compose build
-・dockerの機動
+・dockerの起動
 PS>docker comose up -d
+
+初期の場合はデータベースの設定が必要な場合があります
+その場合は
+PS>docker compose exec db bash
+でsetdb.txtを参考に設定してください
+
 ・落とすとき
 PS>docker compose down
-
 
 使用
 docker
