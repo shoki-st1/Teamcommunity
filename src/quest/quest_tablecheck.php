@@ -2,8 +2,8 @@
 session_start();
 //<!--チェック、登録するためのphp-->
 //内容の代入
-$userId = $_SESSION['userId'];
-$task = $_POST['question'];
+$userId = htmlspecialchars($_SESSION['userId']);
+$task = htmlspecialchars($_POST['question']);
 $startday = $_POST['startday'];
 $finday = $_POST['finday'];
 

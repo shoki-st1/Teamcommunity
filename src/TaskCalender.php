@@ -35,7 +35,7 @@ echo '<tr>
 
 //空白セル
 echo '<tr>';
-//日にちの調整
+//日にちの表示調整
 for ($i = 0; $i < (int)$firstDayManth->format('w'); $i++) {
     echo '<td></td>';
 }
@@ -49,6 +49,7 @@ for ($day = 1; $day <= $lastday; $day++) {
 
     //ある限りtrueになる
     foreach ($tasks as $task) {
+        //範囲にあるか
         if ($currentDate >= $task['startday'] && $currentDate <= $task['finday']) {
             $taskFound = true;
             break;

@@ -1,10 +1,9 @@
 <?php
-//カレンダー
 //リファクタリング
-
+//セッションの開始
 session_start();
 
-//セッションがあるかの確認
+//セッションがあるかの確認、無ければログイン画面に戻る
 if (isset($_SESSION['userId'])) {
     //ユーザーのIdをセッションから受け取り
     $userId = $_SESSION['userId'];
@@ -16,7 +15,7 @@ if (isset($_SESSION['userId'])) {
 //ヘッダー
 require_once 'header.php';
 //ユーザーの表示
-echo '<center>ID：' . $userId . '</center>';
+echo '<center>ID：' . htmlspecialchars($userId) . '</center>';
 ?>
 
 <!--機能選択ボタン-->
@@ -32,6 +31,7 @@ echo '<center>ID：' . $userId . '</center>';
 
 <!--JS-->
 <script>
+    //ログアウトのボタン
     function gologout() {
         window.location.href = "/login/logout.php";
     }
@@ -46,11 +46,7 @@ echo '<center>ID：' . $userId . '</center>';
 <?php
 //カレンダー呼び出し
 require_once __DIR__ . '/TaskCalender.php';
-?>
 
-
-
-<!--フッター-->
-<?php
+//フッター
 require_once 'footer.php';
 ?>

@@ -1,9 +1,9 @@
 <?php
 //セッション
 session_start();
-//受け取り代入
-$userId = $_POST['id'];
-$password = $_POST['pass'];
+//受け取り代入(エスケープ処理)
+$userId = htmlspecialchars($_POST['id']);
+$password = htmlspecialchars($_POST['pass']);
 
 //データベースの情報をファイルから呼び出し
 require(__DIR__ . '/../data/sqldata.php');

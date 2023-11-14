@@ -1,7 +1,10 @@
 <?php
+//セッションの開始
 session_start();
+//ログインのヘッダー読み込み
 require_once __DIR__ . '/loginheader.php';
 
+//エラーの判定と表示
 if (isset($_SESSION['login_error'])) {
     echo '<p>' . $_SESSION['login_error'] . '</p>';
     unset($_SESSION['login_error']);

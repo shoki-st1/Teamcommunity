@@ -9,7 +9,7 @@ $SqlTask = new SqlData();
 
 echo '<h3>内容一覧</h3>';
 
-// SELECTクエリの例
+// 表で一覧の表示
 echo "<center><table border='1'>";
 echo "<tr>
             <th>ユーザid</th>
@@ -24,6 +24,7 @@ $userId = $_SESSION['userId'];
 //idを元に一覧を表示
 $SqlTask->gettask($userId);
 
+//表の終了
 echo "</table></center>";
 
 

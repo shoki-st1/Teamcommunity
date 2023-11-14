@@ -37,7 +37,7 @@ class SqlData extends Data
         $stmt = $this->query($sql, [$userId, $password]);
         $user = $stmt->fetch();
 
-        //あるか返す
+        //あるか返すあれば(user['userid,password'])
         if ($user) {
             return $user;
         } else {
@@ -72,13 +72,14 @@ class SqlData extends Data
         //ユーザのみ抽出
         $sql = "select * from task_table where userid = ?";
         $stmt = $this->query($sql, [$userid]);
+        //条件に一致する日全てを抽出
         return $stmt->fetchAll();
     }
 
     //task追加
     public function addtask($Nowdate, $userId, $task, $startday, $finday)
     {
-        //sql操作命令
+        //sql操作命令(挿入現在時刻、ユーザーID,タスク、開始日、終了日)
         $sql = "insert into task_table (date,userid,task,startday,finday) values(?,?,?,?,?)";
         $result = $this->exec($sql, [$Nowdate, $userId, $task, $startday, $finday]);
     }
@@ -86,6 +87,7 @@ class SqlData extends Data
     //task削除
     public function deltask($date)
     {
+        //登録した日を元に条件に一致する日の削除
         $sql = "delete from task_table where date = ?";
         $result = $this->exec($sql, [$date]);
     }
