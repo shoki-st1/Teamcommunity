@@ -1,1 +1,2 @@
-dockerで起動する際k8sで8080ポートを使っている場合があるので気を付ける
+githubからhttps://github.com/shoki-st1/Teamcommunity.gitをクローン
+ポートに関しては8080を使用している
