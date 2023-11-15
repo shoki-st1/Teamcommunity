@@ -2,7 +2,7 @@
 ・githubから(https://github.com/shoki-st1/Teamcommunity.git)をクローン
 PSはターミナル
 ・dockerでbuild
-PS>docekr compose build
+PS>docker compose build
 ・起動
 PS>docker compose up -d
 
