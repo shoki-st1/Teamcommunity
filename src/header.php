@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <!--キャッシュの削除入れるcssは絶対パス出ないと動かない-->
+    <!--css読み込み-->
     <link rel="stylesheet" type="text/css" href="/progressmain.css">
     <title>スケジューリングタスク</title>
 </head>

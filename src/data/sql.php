@@ -9,9 +9,6 @@ class Data
     {
         //データベースの情報の持ち込み
         require_once __DIR__ . '/config.php';
-        //テスト
-        //$this->pdo = new PDO("mysql:host=$servername;dbname=$dbname;charset=utf8mb4", $username, $password);
-        //$this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         //接続
         try {

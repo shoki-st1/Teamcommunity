@@ -2,7 +2,7 @@
 //セッションの開始
 session_start();
 //<!--チェック、登録するためのphp-->
-//内容の代入
+//内容の代入(sqlインジェクションへの対策)
 $userId = htmlspecialchars($_SESSION['userId']);
 $task = htmlspecialchars($_POST['question']);
 $startday = $_POST['startday'];
